@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@media (width <= 400px) {
+  body{
+    background-size: contain;
+  }  
+}
