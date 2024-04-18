@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (width <= 400px) {
+ /* @media (width <= 600px) {
   body{
-    background-size: contain;
+    background-image: url(./test.jpeg);
+    height: 100vh;
+    background-size: fit-content;
   }  
-}
+}  */
