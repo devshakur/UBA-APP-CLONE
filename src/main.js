@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closeBar('#close-msg');
     showSignInPage();
     closeSignPage();
+    getUserName();
     // closeCountryNav();
 })
 //Global Variables
@@ -19,7 +20,6 @@ let container = document.querySelector(".box");
 let openAccounts = document.querySelector('#open-account');
 let errorMsg = document.querySelector('#error');
 let inputValue = document.querySelector('#password');
-
 const countryName = async () => {
     let list = document.querySelector("#countrys");
     let generatedText = '';
@@ -140,3 +140,12 @@ let closeSignPage = () => {
         }
     })
 }
+// getting user-name doing signup
+export let getUserName = () => {
+  let input = document.querySelector('.values');
+input.addEventListener('blur', () => {
+    let userName = input.value;
+    window.localStorage.setItem('name', userName)
+})   
+ }
+
