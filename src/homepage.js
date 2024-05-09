@@ -6,3 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     displayName.innerHTML = getName.toUpperCase()
 })
 
+// // fixed bottom-0 right-0 left-0 z-20 bg-gray-100
+
+// let scroll = document.body.addEventListener('scroll', () => {
+//     document.querySelector("#footer").classList.add('fixed bottom-0 right-0 left-0 z-20 bg-gray-100')
+// })

@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+input.select::placeholder{
+  padding-left: 20px;
+  font-size: 20px;
+}
+/* mobile responsiveness */
+@media (height >= 841px) {
+  .query{
+   bottom: -14px;
+  }
+}
+@media (height <= 840px) {
+  .query{
+   bottom: -14rem;
+  }
+}
+
+@media (width <= 402px) {
+  .dashboard{
+  width: 22rem;
+  }
+}
+
+@media (width <= 377px) {
+  .dashboard{
+  width: 20rem;
+  }
+  .change{
+    background-size: cover;
+  }
+}
+
+@media (width <= 340px) {
+  .dashboard{
+  width: 18rem;
+  }
+}
+@media (width <= 768px) {
+  .dashboard{
+   top: 130px;
+  }
+}
+@media (width >= 531px) {
+ .change{
+  background-size: cover;
+ }
+}
+@media (width >= 402px) {
+  .dashboard{
+  /* width: 18rem; */
+  margin-left: 10px;
+  justify-content: center;
+  }
+}
+
+@media (width <= 384px) {
+ .accept, .reject{
+ margin-left: 8px;
+ margin-top: 0;
+ width: 90px;
+ }
+}
+@media (width <= 384px) {
+  .container{
+    height: 80vh;
+  }
+ .text{
+  margin-top: 0;
+ }
+ .privacy{
+  margin-top: -30px;
+ }
+ .btn-contain{
+  display: flex;
+  gap: 25vw;
+ }
+}
+/* Tablet reponsiveness */
+@media (width <= 380px) {
+  .query{
+   height: 60vh;
+   bottom: -30px;
+  }
+  .dashboard{
+    top: 60px;
+  }
+}

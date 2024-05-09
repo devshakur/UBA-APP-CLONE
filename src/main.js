@@ -1,8 +1,14 @@
-import "./style.css";
+import "./styles/style.css";
+import countryInfo from "./data/data";
 
-
+const fingerPrints = () => { 
+document.querySelector('.finger').addEventListener('click', (e) => {
+    e.preventDefault();
+    alert('No registered FingerPrint')
+})
+}
 document.addEventListener("DOMContentLoaded", () => {
-    countryName();
+    displayCountry();
     openCountryNav();
     // redirectHome('#sign-up', "homePage.html");
     signInAuthorization();
@@ -13,6 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     showSignInPage();
     closeSignPage();
     getUserName();
+    fingerPrints()
+    loadCountryFlag()
     // closeCountryNav();
 })
 //Global Variables
@@ -20,22 +28,50 @@ let container = document.querySelector(".box");
 let openAccounts = document.querySelector('#open-account');
 let errorMsg = document.querySelector('#error');
 let inputValue = document.querySelector('#password');
-const countryName = async () => {
-    let list = document.querySelector("#countrys");
-    let generatedText = '';
-    let text = '<div class="btn flex justify-end">❌</div>';
-    const apiCall = await fetch('https://restcountries.com/v3.1/region/africa');
-    let result = await apiCall.json();
-    //    const [{ name: { official } }] = result; 
-    const officialNames = result.map(({
-        name: {
-            official
+
+// loading countrys name for user to pick
+
+const loadCountryFlag = () => {
+    const flagContainer = document.querySelector('.flag-container')
+    let countrysName = document.querySelector(".country-name");
+     let openBtn = document.querySelector(".opens");
+    countrysName.addEventListener('change', () => {
+        flagContainer.classList.remove('hidden');
+        const selectedIndex = countrysName.selectedIndex;
+        if (selectedIndex === 1) {
+            flagContainer.src = './data/flags/Nigeria.png'
+        } else if (selectedIndex === 2) {
+             flagContainer.src = './data/ghana-removebg-preview.png'
+        } else if (selectedIndex === 3) {
+             flagContainer.src = './data/flags/bostwana-removebg-preview.png'
+        } else if (selectedIndex === 4) {
+             flagContainer.src = './data/flags/guinea-republic.png'
+        } else if (selectedIndex === 5) {
+              flagContainer.src = './data/flags/benin.png'
+        } else if (selectedIndex === 6) {
+               flagContainer.src = './data/flags/burkina-faso.png'
+        } else if (selectedIndex === 7) {
+             flagContainer.src = './data/flags/Congo-Drc.png'
+        } else if (selectedIndex === 8) {
+            flagContainer.src = './data/flags/cote-dvoire.png'
+        } else {
+            null
         }
-    }) => official)
-    for (let item of officialNames) {
-        generatedText += `<li class="hover:bg-green-500">${item}</li>`
-    }
-    list.innerHTML = text + generatedText;
+})
+}
+
+
+let displayCountry = () => {
+    countryInfo.map((item) => {
+        let optionContainer = document.querySelector("#countrys");
+        let countryImage = document.querySelector(".country-image");  
+        const options = document.createElement('option');
+        options.className = 'text-[10px] md:text-[12px] hover:bg-blue-300'
+        options.innerHTML = `${item.name}`
+        optionContainer.append(options);
+         countryImage.src = `${item.img}`
+        
+    })
 }
 
 const openCountryNav = (id) => {
